@@ -1,16 +1,33 @@
 {
   "name": "priority-queue",
   "version": "1.0.0",
-  "description": "",
+  "description": "Priority Queue implemented using Heap",
   "main": "index.js",
+  "typings": "typing/priority-queue.d.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "node ./dist/index"
+    "test": "jest",
+    "abc": "node ./dist/src/index"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidnguyen179/priority-queue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davidnguyen179/priority-queue/issues"
+  },
+  "homepage": "https://github.com/davidnguyen179/priority-queue/issues/blob/master/README.md",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "David Nguyen <dzungnguyen179@gmail.com> (dzungnguyen179@gmail.com)",
+  "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/jest": "^25.2.1",
+    "babel-jest": "^25.3.0",
+    "jest": "^25.3.0",
+    "ts-jest": "^25.3.1",
     "typescript": "^3.8.3"
   }
 }

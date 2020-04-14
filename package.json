@@ -1,0 +1,16 @@
+{
+  "name": "priority-queue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node ./dist/index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}

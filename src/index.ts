@@ -1,4 +1,4 @@
-import { IPriorityQueue } from "../typing/priority-queue";
+import { IPriorityQueue } from "../typings/priority-queue";
 
 /**
  * The priority queue is a collection in which items can be added at any time, but the only item that can be removed is the one with the highest priority.
@@ -30,12 +30,12 @@ import { IPriorityQueue } from "../typing/priority-queue";
  * // return array = [3, 1, 2];
  */
 export class PriorityQueue<T> implements IPriorityQueue<T> {
-  private queue: T[];
-  private comparator: (item1: T, item2: T) => boolean;
+  private _queue: T[];
+  private _comparator: (item1: T, item2: T) => boolean;
 
   constructor(comparator?: (item1: T, item2: T) => boolean) {
-    this.queue = [];
-    this.comparator = comparator;
+    this._queue = [];
+    this._comparator = comparator;
   }
 
   /**
@@ -44,15 +44,15 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
    * @param value
    */
   public push(value: T) {
-    this.queue.push(value);
-    let i = this.queue.length - 1;
+    this._queue.push(value);
+    let pos = this._queue.length - 1;
 
     while (
-      i != 0 &&
-      this._compare(this.queue[this._parentOf(i)], this.queue[i])
+      pos !== 0 &&
+      this._compare(this._queue[this._parentOf(pos)], this._queue[pos])
     ) {
-      this._swap(i, this._parentOf(i));
-      i = this._parentOf(i);
+      this._swap(pos, this._parentOf(pos));
+      pos = this._parentOf(pos);
     }
   }
 
@@ -60,7 +60,7 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
    * Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
    */
   public top() {
-    return this.queue.length > 0 ? this.queue[0] : null;
+    return this._queue.length > 0 ? this._queue[0] : null;
   }
 
   /**
@@ -68,14 +68,14 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
    * Everytime pop element from queue, the queue is started "sift down" to rebuild the heap
    */
   public pop() {
-    if (this.queue.length === 0) {
+    if (this._queue.length === 0) {
       return null;
     }
 
-    const item = this.queue[0];
-    this.queue[0] = this.queue[this.queue.length - 1];
-    this._swap(0, this.queue.length - 1);
-    this.queue.pop();
+    const item = this._queue[0];
+    this._queue[0] = this._queue[this._queue.length - 1];
+    this._swap(0, this._queue.length - 1);
+    this._queue.pop();
     this._heapify(0);
     return item;
   }
@@ -84,21 +84,21 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
    * Returns the number of elements in this collection.
    */
   public size() {
-    return this.queue.length;
+    return this._queue.length;
   }
 
   /**
    * Checks whether the queue is empty.
    */
   public empty() {
-    return this.queue.length === 0;
+    return this._queue.length === 0;
   }
 
   /**
    * Returns an array containing all of the elements in this queue.
    */
   public toArray() {
-    return [...this.queue];
+    return [...this._queue];
   }
 
   /**
@@ -106,7 +106,7 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
    * @param index
    */
   private _heapify(index: number) {
-    const mid = Math.floor(this.queue.length / 2);
+    const mid = Math.floor(this._queue.length / 2);
     let childIndex1;
     let childIndex2;
     let swapIndex;
@@ -116,11 +116,11 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
       childIndex2 = 2 * index + 2;
       swapIndex = childIndex1;
 
-      if (this._compare(this.queue[childIndex1], this.queue[childIndex2])) {
+      if (this._compare(this._queue[childIndex1], this._queue[childIndex2])) {
         swapIndex = childIndex2;
       }
 
-      if (this._compare(this.queue[index], this.queue[swapIndex])) {
+      if (this._compare(this._queue[index], this._queue[swapIndex])) {
         this._swap(index, swapIndex);
       }
 
@@ -134,9 +134,9 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
    * @param index2
    */
   private _swap(index1: number, index2: number) {
-    const temp = this.queue[index1];
-    this.queue[index1] = this.queue[index2];
-    this.queue[index2] = temp;
+    const temp = this._queue[index1];
+    this._queue[index1] = this._queue[index2];
+    this._queue[index2] = temp;
   }
 
   /**
@@ -145,17 +145,17 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
    * @param item2
    */
   private _compare(item1: T, item2: T) {
-    if (this.comparator) {
-      return this.comparator(item1, item2);
+    if (this._comparator) {
+      return this._comparator(item1, item2);
     }
     return item1 < item2;
   }
 
   /**
    * Get parent's index of the current element
-   * @param i
+   * @param position
    */
-  private _parentOf(i: number) {
-    return Math.floor((i - 1) / 2);
+  private _parentOf(position: number) {
+    return Math.floor((position - 1) / 2);
   }
 }

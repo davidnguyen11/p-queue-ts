@@ -1,9 +1,16 @@
 {
+  "files": ["src/index.ts"],
   "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
+    "outDir": "./dist",
+    "noImplicitAny": false,
+    "noImplicitUseStrict": true,
     "module": "CommonJS",
-    "target": "es6",
-    "allowJs": true
-  }
+    "target": "ESNext",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "lib": ["ES2015"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

@@ -2,7 +2,7 @@
   "name": "priority-queue",
   "version": "1.0.0",
   "description": "Priority Queue implemented using Heap",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "typings": "typing/priority-queue.d.ts",
   "scripts": {
     "build": "tsc",
@@ -43,6 +43,7 @@
     "babel-jest": "^25.3.0",
     "chalk": "^4.0.0",
     "jest": "^25.3.0",
+    "rimraf": "^3.0.2",
     "ts-jest": "^25.3.1",
     "ts-node": "^8.8.2",
     "typescript": "^3.8.3"

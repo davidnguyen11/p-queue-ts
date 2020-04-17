@@ -1,3 +1,3 @@
 # Priority Queue
 
-[![codecov](https://codecov.io/gh/davidnguyen179/priority-queue/branch/master/graph/badge.svg)](https://codecov.io/gh/davidnguyen179/priority-queue)
+[![codecov](https://codecov.io/gh/davidnguyen179/priority-queue/branch/master/graph/badge.svg)](https://codecov.io/gh/davidnguyen179/priority-queue) [![Build Status](https://travis-ci.org/davidnguyen179/priority-queue.svg?branch=master)](https://travis-ci.org/davidnguyen179/priority-queue) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/davidnguyen179/priority-queue/pulls) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/davidnguyen179/priority-queue/blob/master/LICENSE)

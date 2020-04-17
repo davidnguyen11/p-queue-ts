@@ -3,20 +3,10 @@ import { IPriorityQueue } from "../typing/priority-queue";
 export class PriorityQueue<T> implements IPriorityQueue<T> {
   private queue: T[];
   private comparator: (item1: T, item2: T) => boolean;
-  private swapper: (index1: number, index2: number) => void;
 
-  constructor(
-    queue: T[] = [],
-    comparator?: (item1: T, item2: T) => boolean,
-    swapper?: (index1: number, index2: number) => void
-  ) {
-    this.queue = queue;
+  constructor(comparator?: (item1: T, item2: T) => boolean) {
+    this.queue = [];
     this.comparator = comparator;
-    this.swapper = swapper;
-
-    if (this.queue.length > 0) {
-      this._build();
-    }
   }
 
   /**
@@ -81,16 +71,6 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
   }
 
   /**
-   * Build min or max heap
-   */
-  private _build() {
-    const mid = Math.floor(this.queue.length / 2);
-    for (let i = mid - 1; i >= 0; i--) {
-      this._heapify(i);
-    }
-  }
-
-  /**
    * Compare parent value and children value and swap them if conditions are satisfied
    * @param index
    */
@@ -123,13 +103,9 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
    * @param index2
    */
   private _swap(index1: number, index2: number) {
-    if (this.swapper) {
-      this.swapper(index1, index2);
-    } else {
-      const temp = this.queue[index1];
-      this.queue[index1] = this.queue[index2];
-      this.queue[index2] = temp;
-    }
+    const temp = this.queue[index1];
+    this.queue[index1] = this.queue[index2];
+    this.queue[index2] = temp;
   }
 
   /**

@@ -1,5 +1,34 @@
 import { IPriorityQueue } from "../typing/priority-queue";
 
+/**
+ * The priority queue is a collection in which items can be added at any time, but the only item that can be removed is the one with the highest priority.
+ * A heap is a complete binary tree in which the value of a node is less than or greater than all the values in its subtrees.
+ * By convention, the smallest or largest element is the one with the highest priority.
+ * This lib using "Max Heap" as the default to heapify.
+ * @example Changing from Max Priority Queue to Min Priority Queue
+ * const p = new PriorityQueue(function(a, b) { return a > b; });
+ * @example Add elements to queue
+ * const p = new PriorityQueue();
+ * p.push(1); // adding "1" to queue
+ * p.push(2); // adding "2" to queue
+ * p.push(3); // adding "3" to queue
+ * // After "push", queue looks like this: [3, 1, 2]
+ * @example Extract the largest or smallest element from the queue
+ * const elmenet = p.pop(); // return "3" which is the largest element in queue
+ * // After "pop", queue looks like this: [2, 1]
+ * @example Peek the element (get the largest or smallest element without removing it from queue)
+ * const elmenet = p.top(); // return "3" which is the largest element in queue
+ * // After "pop", queue looks like this: [3, 1, 2]
+ * @example Get the size of the queue
+ * const size = p.size(); // return "3", because the queue has 3 elements
+ * @example Check whether the queue is empty or not
+ * const isEmpty = p.empty();
+ * // return true, if the queue has elements
+ * // return false, if the queue is empty
+ * @example Extract queue to array
+ * const array = p.toArray(); // This will extract all elements from queue to array
+ * // return array = [3, 1, 2];
+ */
 export class PriorityQueue<T> implements IPriorityQueue<T> {
   private queue: T[];
   private comparator: (item1: T, item2: T) => boolean;
@@ -11,6 +40,7 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
 
   /**
    * Inserts the specified element into this priority queue.
+   * Everytime adding new element to queue, the queue is started "sift up" to rebuild the heap
    * @param value
    */
   public push(value: T) {
@@ -35,6 +65,7 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
 
   /**
    * Retrieves and removes the head of this queue, or returns null if this queue is empty.
+   * Everytime pop element from queue, the queue is started "sift down" to rebuild the heap
    */
   public pop() {
     if (this.queue.length === 0) {

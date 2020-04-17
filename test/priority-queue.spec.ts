@@ -1,6 +1,6 @@
 import { PriorityQueue } from '../src';
 import { IPriorityQueue } from '../typing/priority-queue';
-import { testCase1, testCase2 } from './fixtures/test-case';
+import { testCase1, testCase2, testCase3 } from './fixtures/test-case';
 
 describe('testing priority queue', () => {
   let p: IPriorityQueue<number>;
@@ -78,6 +78,98 @@ describe('testing priority queue', () => {
       expect(item).toEqual(null);
     });
 
+  });
+
+  describe('testing with array of object', () => {
+    it('should return max heap of test case 3', () => {
+      p = new PriorityQueue(function (a: any, b: any) {
+        return a.value < b.value;
+      });
+
+      for (let i = 0; i < testCase3.length; i++) {
+        p.push(testCase3[i] as any);
+      }
+      const actual = p.toArray();
+      const expected = [
+        { text: 'e', value: 8 },
+        { text: 'b', value: 7 },
+        { text: 'c', value: 4 },
+        { text: 'd', value: 1 },
+        { text: 'a', value: 2 },
+        { text: 'f', value: 1 },
+      ];
+      expect(actual).toEqual(expected);
+    });
+
+    it('should return min heap of test case 3', () => {
+      p = new PriorityQueue(function (a: any, b: any) {
+        return a.value > b.value;
+      });
+
+      for (let i = 0; i < testCase3.length; i++) {
+        p.push(testCase3[i] as any);
+      }
+      const actual = p.toArray();
+      const expected = [
+        { text: 'd', value: 1 },
+        { text: 'a', value: 2 },
+        { text: 'f', value: 1 },
+        { text: 'b', value: 7 },
+        { text: 'e', value: 8 },
+        { text: 'c', value: 4 }
+      ];
+      expect(actual).toEqual(expected);
+    });
+
+    it('should extract the "max" value & rebuild "max" heap of test case 3', () => {
+      p = new PriorityQueue(function (a: any, b: any) {
+        return a.value < b.value;
+      });
+
+      for (let i = 0; i < testCase3.length; i++) {
+        p.push(testCase3[i] as any);
+      }
+
+      expect(p.size()).toEqual(testCase3.length);
+      const max = p.pop();
+      expect(max).toEqual({ text: 'e', value: 8 });
+      expect(p.size()).toEqual(testCase3.length - 1);
+
+      const actual = p.toArray();
+      const expected = [
+        { text: 'b', value: 7 },
+        { text: 'a', value: 2 },
+        { text: 'c', value: 4 },
+        { text: 'd', value: 1 },
+        { text: 'f', value: 1 }
+      ];
+      expect(actual).toEqual(expected);
+    });
+
+    it('should extract the "min" value & rebuild "min" heap of test case 3', () => {
+      p = new PriorityQueue(function (a: any, b: any) {
+        return a.value > b.value;
+      });
+
+      for (let i = 0; i < testCase3.length; i++) {
+        p.push(testCase3[i] as any);
+      }
+
+      expect(p.size()).toEqual(testCase3.length);
+      const min = p.pop();
+      expect(min).toEqual({ text: 'd', value: 1 });
+      expect(p.size()).toEqual(testCase3.length - 1);
+
+      const actual = p.toArray();
+      const expected = [
+        { text: 'f', value: 1 },
+        { text: 'a', value: 2 },
+        { text: 'c', value: 4 },
+        { text: 'b', value: 7 },
+        { text: 'e', value: 8 }
+      ];
+      expect(actual).toEqual(expected);
+    });
   });
 
   describe('min priority queue', () => {

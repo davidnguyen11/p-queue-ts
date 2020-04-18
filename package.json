@@ -58,9 +58,6 @@
     }
   },
   "lint-staged": {
-    "*.spec.{ts,tsx}": [
-      "npm run test"
-    ],
     "*.{ts,tsx}": [
       "npm run prettier",
       "git add"

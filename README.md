@@ -28,6 +28,10 @@ yarn add p-queue-ts
 
 The `priority queue` lib uses max heap as a default way to build a queue.
 
+```ts
+import { PriorityQueue } from 'p-queue-ts';
+```
+
 **Max priority queue**
 
 _with array of numbers_

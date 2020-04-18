@@ -10,6 +10,20 @@ For more information, please check [wiki](https://en.wikipedia.org/wiki/Priority
 
 During practising some challenges in `leetcode`. I found this [problem](https://leetcode.com/problems/last-stone-weight/) requires `priority queue`. So I decided to research some documentations online and try to implement by myself this lib. The result beats 97% in `leetcode`.
 
+## Installation
+
+_npm_
+
+```bash
+npm i p-queue-ts
+```
+
+_yarn_
+
+```bash
+yarn add p-queue-ts
+```
+
 ## Usage
 
 The `priority queue` lib uses max heap as a default way to build a queue.
@@ -37,12 +51,12 @@ const p = new PriorityQueue(function (a, b) {
   return a.value < b.value;
 });
 
-p.push({ text: "a", value: 2 });
-p.push({ text: "b", value: 7 });
-p.push({ text: "c", value: 4 });
-p.push({ text: "d", value: 1 });
-p.push({ text: "e", value: 8 });
-p.push({ text: "f", value: 1 });
+p.push({ text: 'a', value: 2 });
+p.push({ text: 'b', value: 7 });
+p.push({ text: 'c', value: 4 });
+p.push({ text: 'd', value: 1 });
+p.push({ text: 'e', value: 8 });
+p.push({ text: 'f', value: 1 });
 
 /** The queue
 [
@@ -83,12 +97,12 @@ const p = new PriorityQueue(function (a, b) {
   return a.value > b.value;
 });
 
-p.push({ text: "a", value: 2 });
-p.push({ text: "b", value: 7 });
-p.push({ text: "c", value: 4 });
-p.push({ text: "d", value: 1 });
-p.push({ text: "e", value: 8 });
-p.push({ text: "f", value: 1 });
+p.push({ text: 'a', value: 2 });
+p.push({ text: 'b', value: 7 });
+p.push({ text: 'c', value: 4 });
+p.push({ text: 'd', value: 1 });
+p.push({ text: 'e', value: 8 });
+p.push({ text: 'f', value: 1 });
 
 /** The queue
 [

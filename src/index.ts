@@ -1,4 +1,4 @@
-import { IPriorityQueue } from "../typings/priority-queue";
+import { IPriorityQueue } from '../typings/priority-queue';
 
 /**
  * The priority queue is a collection in which items can be added at any time, but the only item that can be removed is the one with the highest priority.

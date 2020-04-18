@@ -1,6 +1,6 @@
 {
   "name": "p-queue-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Priority Queue implemented using Heap",
   "main": "dist/index.js",
   "typings": "typing/priority-queue.d.ts",
@@ -63,7 +63,7 @@
       "git add"
     ]
   },
-  "engines" : { 
-    "node" : ">=8.0.0" 
+  "engines": {
+    "node": ">=8.0.0"
   }
 }

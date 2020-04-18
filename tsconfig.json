@@ -9,7 +9,8 @@
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "lib": ["ES2015"]
+    "lib": ["ES2015"],
+    "removeComments": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]

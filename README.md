@@ -201,6 +201,8 @@ const array = p.toArray(); // Output: [3, 1, 2]
 
 ## Running time
 
+You can check the performance of the package here: [https://jsperf.com/p-queue-ts](https://jsperf.com/p-queue-ts)
+
 | Operation | Binary heap |
 | --------- | ----------- |
 | push      | O(lg n)     |

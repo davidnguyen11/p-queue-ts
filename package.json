@@ -1,6 +1,6 @@
 {
   "name": "p-queue-ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Priority Queue implemented using Heap",
   "main": "dist/index.js",
   "typings": "typing/priority-queue.d.ts",
@@ -17,12 +17,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidnguyen179/priority-queue.git"
+    "url": "https://github.com/davidnguyen179/p-queue-ts.git"
   },
   "bugs": {
-    "url": "https://github.com/davidnguyen179/priority-queue/issues"
+    "url": "https://github.com/davidnguyen179/p-queue-ts/issues"
   },
-  "homepage": "https://github.com/davidnguyen179/priority-queue/issues/blob/master/README.md",
+  "homepage": "https://github.com/davidnguyen179/p-queue-ts/issues/blob/master/README.md",
   "keywords": [
     "priority queue",
     "js module",

@@ -32,6 +32,12 @@ The `priority queue` lib uses max heap as a default way to build a queue.
 import { PriorityQueue } from 'p-queue-ts';
 ```
 
+or
+
+```ts
+const { PriorityQueue } = require('p-queue-ts');
+```
+
 **Max priority queue**
 
 _with array of numbers_

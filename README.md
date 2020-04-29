@@ -4,7 +4,7 @@ A priority queue is a collection in which items can be added at any time, but th
 
 For more information, please check [wiki](https://en.wikipedia.org/wiki/Priority_queue).
 
-[![codecov](https://codecov.io/gh/davidnguyen179/priority-queue/branch/master/graph/badge.svg)](https://codecov.io/gh/davidnguyen179/priority-queue) [![Build Status](https://travis-ci.org/davidnguyen179/priority-queue.svg?branch=master)](https://travis-ci.org/davidnguyen179/priority-queue) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/davidnguyen179/priority-queue/pulls) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/davidnguyen179/priority-queue/blob/master/LICENSE)
+[![codecov](https://codecov.io/gh/davidnguyen179/p-queue-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/davidnguyen179/p-queue-ts) [![Build Status](https://travis-ci.org/davidnguyen179/p-queue-ts.svg?branch=master)](https://travis-ci.org/davidnguyen179/p-queue-ts) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/davidnguyen179/p-queue-ts/pulls) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/davidnguyen179/p-queue-ts/blob/master/LICENSE)
 
 ## Motivation
 

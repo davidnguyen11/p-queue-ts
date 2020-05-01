@@ -91,7 +91,7 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
    * Checks whether the queue is empty.
    */
   public empty() {
-    return this._queue.length === 0;
+    return !this._queue.length;
   }
 
   /**
@@ -102,14 +102,53 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
   }
 
   /**
+   * Removes all of the elements from this priority queue.
+   */
+  public clear() {
+    this._queue = [];
+  }
+
+  /**
+   * Returns true if this queue contains the specified element.
+   * @param value
+   * @param comparator
+   */
+  public contains(value: T, comparator?: (item: T) => boolean) {
+    if (!this._queue.length) return false;
+
+    const func = comparator || ((item: T): boolean => item === value);
+
+    const mid = Math.floor(this._queue.length / 2);
+    let childIndex1: number;
+    let childIndex2: number;
+    let index = 0;
+
+    while (index <= mid - 1) {
+      childIndex1 = 2 * index + 1;
+      childIndex2 = 2 * index + 2;
+
+      if (
+        (this._queue[index] && func(this._queue[index])) ||
+        (this._queue[childIndex1] && func(this._queue[childIndex1])) ||
+        (this._queue[childIndex2] && func(this._queue[childIndex2]))
+      ) {
+        return true;
+      }
+
+      index++;
+    }
+    return false;
+  }
+
+  /**
    * Compare parent value and children value and swap them if conditions are satisfied
    * @param index
    */
   private _heapify(index: number) {
     const mid = Math.floor(this._queue.length / 2);
-    let childIndex1;
-    let childIndex2;
-    let swapIndex;
+    let childIndex1: number;
+    let childIndex2: number;
+    let swapIndex: number;
 
     while (index <= mid - 1) {
       childIndex1 = 2 * index + 1;

@@ -1,5 +1,7 @@
 {
-  "files": ["src/index.ts"],
+  "files": [
+    "src/index.ts"
+  ],
   "compilerOptions": {
     "outDir": "./dist",
     "noImplicitAny": false,
@@ -9,8 +11,16 @@
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "lib": ["ES2015"]
+    "lib": [
+      "ES2015",
+      "DOM"
+    ]
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }

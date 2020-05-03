@@ -90,6 +90,7 @@ _with array of numbers_
 const p = new PriorityQueue(function (a, b) {
   return a > b;
 });
+
 p.push(2);
 p.push(7);
 p.push(4);
@@ -128,7 +129,7 @@ p.push({ text: 'f', value: 1 });
 
 ## API
 
-### push(value)
+### push(value: T)
 
 Add elements to queue
 
@@ -141,7 +142,7 @@ p.push(3); // adding "3" to queue
 // The queue: [3, 1, 2]
 ```
 
-### pop
+### pop()
 
 Extract the largest or smallest element from the queue
 
@@ -156,7 +157,7 @@ const elmenet = p.pop(); // Output: 3
 
 The queue looks like this `[2, 1]`
 
-### top
+### top()
 
 Peek the element (get the largest or smallest element without removing it from queue)
 
@@ -171,7 +172,7 @@ const elmenet = p.pop(); // Output: 3
 // The queue is remained the same
 ```
 
-### size
+### size()
 
 Get the size of the queue
 
@@ -185,14 +186,14 @@ p.push(4); // adding "4" to queue
 const length = p.size(); // Output: 4
 ```
 
-### empty
+### empty()
 
 Check whether the queue is empty or not.
 
 - true: if the queue is empty
 - false: if the queue has data
 
-### toArray
+### toArray()
 
 Extract queue to array
 
@@ -203,6 +204,54 @@ p.push(2); // adding "2" to queue
 p.push(3); // adding "3" to queue
 
 const array = p.toArray(); // Output: [3, 1, 2]
+```
+
+### clear()
+
+Removes all of the elements from this priority queue.
+
+### contains(value: T, comparator?: (item: T) => boolean)
+
+Returns true if this queue contains the specified element.
+
+- true: if the element exists in queue
+- false: if the element does not exist in queue
+
+_with array of numbers_
+
+```ts
+const p = new PriorityQueue();
+p.push(2);
+p.push(7);
+p.push(4);
+p.push(1);
+p.push(8);
+p.push(1);
+
+p.contains(8); // true
+p.contains(100); // false
+```
+
+_with array of objects_
+
+```ts
+const p = new PriorityQueue(function (a, b) {
+  return a.value > b.value;
+});
+
+p.push({ text: 'a', value: 2 });
+p.push({ text: 'b', value: 7 });
+p.push({ text: 'c', value: 4 });
+p.push({ text: 'd', value: 1 });
+p.push({ text: 'e', value: 8 });
+p.push({ text: 'f', value: 1 });
+
+function callback(item: any) {
+  return item.value === element.value;
+}
+
+p.contains(8, callback); // true
+p.contains(100, callback); // false
 ```
 
 ## Running time

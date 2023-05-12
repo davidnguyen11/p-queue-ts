@@ -31,7 +31,7 @@ import { IPriorityQueue } from '../typings/priority-queue';
  */
 export class PriorityQueue<T> implements IPriorityQueue<T> {
   private _queue: T[];
-  private _comparator: (item1: T, item2: T) => boolean;
+  private _comparator?: (item1: T, item2: T) => boolean;
 
   constructor(comparator?: (item1: T, item2: T) => boolean) {
     this._queue = [];

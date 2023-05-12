@@ -5,12 +5,12 @@
   "compilerOptions": {
     "outDir": "./dist",
     "noImplicitAny": false,
-    "noImplicitUseStrict": true,
     "module": "CommonJS",
     "target": "ESNext",
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "strict": true,
     "lib": [
       "ES2015",
       "DOM"

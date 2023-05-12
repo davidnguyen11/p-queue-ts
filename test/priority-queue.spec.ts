@@ -16,7 +16,7 @@ describe('testing priority queue', () => {
     });
 
     afterEach(() => {
-      p = null;
+      p = new PriorityQueue();
     });
 
     it('should return max heap of test case 1', () => {
@@ -193,7 +193,7 @@ describe('testing priority queue', () => {
     });
 
     afterEach(() => {
-      p = null;
+      p = new PriorityQueue();
     });
 
     it('should return min heap of test case 1', () => {
@@ -233,7 +233,7 @@ describe('testing priority queue', () => {
     });
 
     afterEach(() => {
-      p = null;
+      p = new PriorityQueue();
     });
 
     it('should return true - with array of numbers', () => {

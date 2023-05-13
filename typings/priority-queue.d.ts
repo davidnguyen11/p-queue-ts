@@ -10,12 +10,12 @@ export interface IPriorityQueue<T> {
   /**
    * Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
    */
-  top: () => T;
+  top: () => T | null;
   /**
    * Retrieves and removes the head of this queue, or returns null if this queue is empty.
    * Everytime pop element from queue, the queue is started "sift down" to rebuild the heap
    */
-  pop: () => T;
+  pop: () => T | null;
   /**
    * Returns the number of elements in this collection.
    */
